@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import type { Question } from '../types';
 import { TYPE_LABELS } from '../types';
 import QuestionCard from '../components/QuestionCard';
@@ -77,7 +77,10 @@ export default function QuizPage({ questions }: QuizPageProps) {
     <div className="max-w-3xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
-        <h2 className="text-xl font-bold text-gray-800">{label}</h2>
+        <div className="flex items-center gap-3">
+          <Link to="/" className="text-gray-400 hover:text-gray-600 no-underline text-sm">← 首页</Link>
+          <h2 className="text-xl font-bold text-gray-800">{label}</h2>
+        </div>
         <ModeSelector mode={mode} onChange={handleModeChange} />
       </div>
 
