@@ -9,7 +9,7 @@ interface HomePageProps {
 }
 
 export default function HomePage({ questions }: HomePageProps) {
-  const { getStats, getWrongIds } = useProgress();
+  const { getStats, getWrongIds, resetProgress } = useProgress();
 
   const typeStats = useMemo(() => {
     const types: QuestionType[] = ['choice', 'calculation', 'analysis'];
@@ -90,6 +90,13 @@ export default function HomePage({ questions }: HomePageProps) {
         >
           随机刷选择题
         </Link>
+        <button
+          type="button"
+          onClick={() => resetProgress()}
+          className="px-6 py-3 bg-white text-gray-700 rounded-lg border border-gray-300 hover:border-red-300 hover:text-red-600 transition-colors font-medium cursor-pointer"
+        >
+          重置进度
+        </button>
         {wrongCount > 0 && (
           <Link
             to="/wrong-book"
