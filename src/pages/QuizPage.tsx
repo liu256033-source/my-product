@@ -93,6 +93,7 @@ export default function QuizPage({ questions }: QuizPageProps) {
 
       {/* Question */}
       <QuestionCard
+        key={current.id}
         question={current}
         onAnswer={handleAnswer}
         savedResult={getEntry(current.id)?.done ? { correct: getEntry(current.id)!.correct } : null}

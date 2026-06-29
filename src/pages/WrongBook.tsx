@@ -86,6 +86,7 @@ export default function WrongBook({ questions }: WrongBookProps) {
       {selected && (
         <div>
           <QuestionCard
+            key={selected.id}
             question={selected}
             onAnswer={handleAnswer}
             savedResult={getEntry(selected.id)?.done ? { correct: getEntry(selected.id)!.correct } : null}
