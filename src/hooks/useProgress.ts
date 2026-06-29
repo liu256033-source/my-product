@@ -16,6 +16,11 @@ export function useProgress() {
   const [progress, setProgress] = useState<ProgressMap>(loadProgress);
 
   useEffect(() => {
+    if (Object.keys(progress).length === 0) {
+      localStorage.removeItem(STORAGE_KEY);
+      return;
+    }
+
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
   }, [progress]);
 
